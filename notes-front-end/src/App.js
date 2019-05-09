@@ -1,7 +1,7 @@
 import React from 'react';
-// import NewForm from './components/NewForm'
+import NewForm from './components/NewForm'
 
-const baseURL = 'http://localhost:3003/notes'
+const baseURL = 'http://localhost:3003'
 
 class App extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class App extends React.Component {
     })
   }
   deleteNote(id) {
-    fetch(baseURL + '/holidays/' + id, {
+    fetch(baseURL + '/notes/' + id, {
       method: 'DELETE'
     }).then(res => {
       const findIndex = this.state.notes.findIndex(note => note._id === id)
@@ -34,7 +34,7 @@ class App extends React.Component {
   }
   renderNotes() {
     //fetch notes from backend
-    fetch(baseURL)
+    fetch(baseURL + '/notes')
     .then(data => data.json())
     .then(parsedData => this.setState({notes: parsedData}), err => console.log(err))
   }
@@ -42,7 +42,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>Note Taker</h1>
-        {/* <NewForm handleAddNote={this.handleAddNote}/> */}
+        <NewForm handleAddNote={this.handleAddNote}/>
         <table>
           <tbody>
             {
@@ -54,7 +54,7 @@ class App extends React.Component {
                     </td>
                     {/* add onClick={() => this.deleteNote(note._id)},
                     wait until create form is up and running */}
-                    <td>X</td>
+                    <td onClick={() => this.deleteNote(note._id)}>X</td>
                   </tr>
                 )
               })

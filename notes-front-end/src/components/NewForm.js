@@ -41,7 +41,7 @@ class NewForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="title"></label>
         <input type="text" id="title" name="title" onChange={this.handleChange} value={this.state.title} placeholder="add a title"/>
-        <input type="submit" value="Add a Reason to Celebrate"/>
+        <input type="submit" value="Add a Note"/>
       </form>
     )
   }
