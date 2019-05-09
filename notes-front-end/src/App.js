@@ -9,14 +9,14 @@ class App extends React.Component {
     this.state = {
       notes: []
     }
-    this.addNote = this.addNote.bind(this)
+    this.handleAddNote = this.handleAddNote.bind(this)
     this.deleteNote = this.deleteNote.bind(this)
     this.renderNotes = this.renderNotes.bind(this)
   }
   componentDidMount() {
     this.renderNotes()
   }
-  addNote(note) {
+  handleAddNote(note) {
     const copyNotes = [note, ...this.state.notes]
     this.setState({
       notes: copyNotes
@@ -42,7 +42,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>Note Taker</h1>
-        {/* <NewForm addNote={this.addNote}/> */}
+        {/* <NewForm addNote={this.handleAddNote}/> */}
         <table>
           <tbody>
             {
