@@ -11,6 +11,7 @@ notes.post('/', async (req, res) => {
     })
   })
 
+
   notes.get('/', (req, res) => {
     Note.find({}, (err, foundNote) => {
       if (err) {
@@ -37,5 +38,6 @@ notes.post('/', async (req, res) => {
       res.status(200).json(updatedNote)
     })
   })
+
 
 module.exports = notes

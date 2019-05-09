@@ -1,6 +1,7 @@
 // Dependencies
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 // Dependency configurations
 
 
@@ -24,6 +25,7 @@ mongoose.connection.once('open', () => {
 
 // MIDDLEWARE
 app.use(express.json())
+app.use(cors())
 const notesController = require('./controllers/notes')
 app.use('/notes', notesController)
 
