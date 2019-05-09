@@ -42,7 +42,11 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>Note Taker</h1>
+<<<<<<< HEAD
         <NewForm handleAddNote={this.handleAddNote}/>
+=======
+        <NewForm addNote={this.handleAddNote}/>
+>>>>>>> cbd594da9a096b6bae0bcd63a417b26aea61a598
         <table>
           <tbody>
             {
