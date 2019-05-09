@@ -42,7 +42,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>Note Taker</h1>
-        {/* <NewForm addNote={this.handleAddNote}/> */}
+        {/* <NewForm handleAddNote={this.handleAddNote}/> */}
         <table>
           <tbody>
             {
