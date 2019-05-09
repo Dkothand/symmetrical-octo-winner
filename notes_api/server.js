@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 
 
 const app = express()
-const PORT = 3000;
+const PORT = 3003;
 const MONGODB_URI = 'mongodb://localhost:27017/notes'
 
 
