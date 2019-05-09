@@ -1,4 +1,5 @@
 import React from 'react';
+// import NewForm from './components/NewForm'
 
 const baseURL = 'http://localhost:3003/notes'
 
@@ -8,11 +9,18 @@ class App extends React.Component {
     this.state = {
       notes: []
     }
+    this.addNote = this.addNote.bind(this)
     this.deleteNote = this.deleteNote.bind(this)
     this.renderNotes = this.renderNotes.bind(this)
   }
   componentDidMount() {
     this.renderNotes()
+  }
+  addNote(note) {
+    const copyNotes = [note, ...this.state.notes]
+    this.setState({
+      notes: copyNotes
+    })
   }
   deleteNote(id) {
     fetch(baseURL + '/holidays/' + id, {
@@ -34,6 +42,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>Note Taker</h1>
+        {/* <NewForm addNote={this.addNote}/> */}
         <table>
           <tbody>
             {
