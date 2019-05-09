@@ -1,7 +1,7 @@
 import React from 'react';
-// import NewForm from './components/NewForm'
+import NewForm from './components/NewForm'
 
-const baseURL = 'http://localhost:3003/notes'
+const baseURL = 'http://localhost:3003'
 
 class App extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>Note Taker</h1>
-        {/* <NewForm addNote={this.handleAddNote}/> */}
+        <NewForm addNote={this.handleAddNote}/>
         <table>
           <tbody>
             {
