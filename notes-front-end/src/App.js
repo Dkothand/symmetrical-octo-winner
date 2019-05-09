@@ -16,7 +16,7 @@ class App extends React.Component {
     //fetch notes from backend
     fetch('http://localhost:3003/notes')
     .then(data => data.json())
-    .then(parsedData => console.log(parsedData))
+    .then(parsedData => this.setState({notes: parsedData}), err => console.log(err))
   }
   render() {
     return (
