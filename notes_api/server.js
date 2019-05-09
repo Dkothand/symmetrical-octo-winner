@@ -1,11 +1,12 @@
 // Dependencies
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 // Dependency configurations
 
 
 const app = express()
-const PORT = 3000;
+const PORT = 3003;
 const MONGODB_URI = 'mongodb://localhost:27017/notes'
 
 
@@ -24,6 +25,7 @@ mongoose.connection.once('open', () => {
 
 // MIDDLEWARE
 app.use(express.json())
+app.use(cors())
 const notesController = require('./controllers/notes')
 app.use('/notes', notesController)
 
