@@ -1,5 +1,6 @@
 import React from 'react';
 
+const baseURL = 'http://localhost:3003/notes'
 
 class App extends React.Component {
   constructor(props) {
@@ -7,14 +8,25 @@ class App extends React.Component {
     this.state = {
       notes: []
     }
+    this.deleteNote = this.deleteNote.bind(this)
     this.renderNotes = this.renderNotes.bind(this)
   }
   componentDidMount() {
     this.renderNotes()
   }
+  deleteNote(id) {
+    fetch(baseURL + '/holidays/' + id, {
+      method: 'DELETE'
+    }).then(res => {
+      const findIndex = this.state.notes.findIndex(note => note._id === id)
+      const copyNotes = [...this.state.notes]
+      copyNotes.splice(findIndex, 1)
+      this.setState({notes: copyNotes})
+    })
+  }
   renderNotes() {
     //fetch notes from backend
-    fetch('http://localhost:3003/notes')
+    fetch(baseURL)
     .then(data => data.json())
     .then(parsedData => this.setState({notes: parsedData}), err => console.log(err))
   }
@@ -31,6 +43,9 @@ class App extends React.Component {
                     <td>
                       {note.title}
                     </td>
+                    {/* add onClick={() => this.deleteNote(note._id)},
+                    wait until create form is up and running */}
+                    <td>X</td>
                   </tr>
                 )
               })
