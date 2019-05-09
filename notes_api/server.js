@@ -10,6 +10,8 @@ app.get('/', (req, res) => {
 const notesController = require('./controllers/notes')
 app.use('/notes', notesController)
 
+// THIS IS A COMMENT I MADE
+
 app.listen(PORT, () => {
     console.log('connected on port', PORT)
 })
