@@ -6,6 +6,10 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+// MIDDLEWARE
+const notesController = require('./controllers/notes')
+app.use('/notes', notesController)
+
 app.listen(PORT, () => {
     console.log('connected on port', PORT)
 })
